@@ -1,0 +1,174 @@
+<html>
+
+<head>
+    <title>LOGIN</title>
+
+
+    
+    <style>
+
+
+
+        *{
+            margin: 0;
+        }
+        
+        
+        
+        
+        
+        a{
+           text-decoration: none; 
+           color:white;
+           font-family: Arial;
+         
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        .content-table{
+        
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        width: 600px;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0 ,15);
+        }
+        
+        
+        .content-table thead tr{
+        
+        background-color: #009879;
+        color: white;
+        text-align: left;
+        font-weight: bold;
+        
+        }
+        
+        
+        .content-table tbody tr{
+          border-bottom:  1px solid #dddddd;
+        }
+        
+        .content-table tbody tr.active-row{
+        
+        font-weight: bold;
+        color: #009879;
+        
+        
+        }
+        
+        
+        .content-table tbody t :nth-of-type(even){
+        
+        background-color: #f3f3f3;
+        
+        }
+        
+        
+        .content-table th, .content-table td{
+        
+        padding: 12px 15px;
+        
+        }
+        
+        
+        .content-table tbody tr:last-of-type {
+        
+        border-bottom: 2px solid #009879;
+        
+        }
+        
+        
+        
+        
+        
+        
+        
+              body{
+        
+                background-color: #000000;
+        
+              }
+        
+        
+              nav{
+        
+            
+                background-color: #222222;
+                height: 60px;
+                width: 100%;
+        
+              }
+        
+            </style>
+
+
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif; background-color: #6d6d6d; background-image: url(/static/food.jpg); background-repeat: no-repeat; background-size: cover; padding-top: 20px;">
+
+
+
+
+
+    <center>
+    <div style="background-image: url(static/food.jpg); border-radius: 20px; background-color: #009879; width: 800px; height: 550px; padding-top: 20px; padding-bottom: 40px; margin-top: 80px;">
+
+    <h1 style="margin-top: 50px; font-family: Arial, Helvetica, sans-serif;">Welcome to online restaurant</h1>
+
+
+
+    <br>
+    <br>
+
+
+    <br>
+    
+    <center><a  href="/gotoadmin" style="margin-top: 20px; color:#dddddd;">ADMIN PAGE</a></center>
+
+
+
+
+    <table class="content-table" style="background-color: #ffffff; margin-top: 50px; border-radius: 30px;">
+        <tr>
+            <th>Food name</th>
+            <th>Preparation time</th>
+            <th>details</th>
+          
+        </tr>
+
+
+        {% for i in foods %} 
+
+
+
+        <tr>
+            <td>{{i.meal_name}}</td> 
+            <td>{{i.preparation_time}}</td> 
+            <td><form action="/getmealdetails" method="POST">
+              <input type="text" name="name" value="{{i.meal_name}}" style="display: hidden;" >
+              <br><br>
+              <input type="submit" value="details">
+              </form>
+          </td>
+
+       
+        </tr>
+       
+        {% endfor %}
+
+    </table>
+
+
+
+</div></center>
+</body>
+
+</html>
